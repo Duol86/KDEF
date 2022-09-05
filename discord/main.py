@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 #version 2.0 of KDEF, now using the pycord API wrapper
 
 #importing func.py, which contains database functions
