@@ -2,12 +2,14 @@ import sqlite3
 
 c = sqlite3.connect('kygish.db')
 
+#Adds a new word to the database
 def add(e, k):
     c.execute(f'''INSERT INTO kdef(english, kygish)
     VALUES("{e}", "{k}")
     ''')
     c.commit()
 
+#Searches db for the word and its definition
 def keydef(k):
     o = ''
     cu = c.execute('SELECT * FROM kdef')
@@ -23,8 +25,10 @@ def keydef(k):
     if o == '':
         return False
     else:
+        #returns [definition, word's language, definition's language]
         return [o, olang, olang2]
 
+#Checks database for whether or not the word exists, returns True or False
 def indb(k):
     o = False
     cu = c.execute('SELECT * FROM kdef')
@@ -33,6 +37,7 @@ def indb(k):
             o = True
     return o
 
+#deletes a word from the database
 def delete(k):
     lang = keydef(k)[1]
     c.execute(f'DELETE FROM kdef WHERE {lang} = "{k}"')
