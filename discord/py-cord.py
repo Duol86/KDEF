@@ -38,9 +38,18 @@ async def add(ctx, word, definition):
 async def define(ctx, word):
     word = word.capitalize()
     deff = func.keydef(word)
-    if deff[1] == 'kygish':
-        await ctx.respond(f'english definition: {deff[0]}')
-    elif deff[1] == 'english':
-        await ctx.respond(f'kygish definition: {deff[0]}')
+    try:
+        await ctx.respond(f'{deff[2].capitalize()} definition: {deff[0]}')
+    except:
+        await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word>`')
 
-client.run('<token>')
+@client.slash_command(guild_ids=guilds, description='Deletes a word and definition')
+async def delete(ctx, word):
+    word = word.capitalize()
+    if func.indb(word) == True:
+        func.delete(word)
+        await ctx.respond(f'Deleted word {word} and its definition')
+    else:
+        await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word>`')
+
+client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GCSIn6.HCVZL_7MvqK42A57RyMnQ5ockob5UUY2jnDSAo')
