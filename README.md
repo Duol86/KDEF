@@ -8,7 +8,7 @@ Special thanks to the creator of Pycord and of Discord.py for making this projec
 **Before running, make sure to run either setup.py or setup.sql to set up the database for use with KDEF**
 
 # Dependencies
-  - Pycord
+  - Pycord v2.0.1
   - SQLite3
   - Python 3.0.0 or above
   - Discord bot **with message content intents**, can be created at https://discord.com/developers/applications/
