@@ -8,7 +8,7 @@ Special thanks to the creator of Pycord and of Discord.py for making this projec
 **Before running**
 Make sure to run either setup.py or setup.sql to set up the database for use with KDEF
 
-**Dependencies**
+# Dependencies
   - Pycord
   - SQLite3
   - Python (Obviously)
