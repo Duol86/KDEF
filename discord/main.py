@@ -19,6 +19,7 @@ client = commands.Bot(
         'kt.'
         'Kt.'
     ],
+#REQUIRES MESSAGE CONTENT INTENTS
 intents=intents)
 
 #Current guilds that the bot can use slash commands in
