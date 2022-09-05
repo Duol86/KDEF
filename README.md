@@ -4,3 +4,12 @@ KDEF is a dictionary Discord bot made for a constructed language called 'Kygish'
 Originally, KDEF was created using Discord.py version 1.0, but the changes made to the project to introduce slash commands have forced KDEF to migrate to using Pycord, instead.
 
 Special thanks to the creator of Pycord and of Discord.py for making this project possible in an easy way.
+
+**Before running**
+Make sure to run either setup.py or setup.sql to set up the database for use with KDEF
+
+**Dependencies**
+  - Pycord
+  - SQLite3
+  - Python (Obviously)
+  - Discord bot **with message content intents**, can be created at https://discord.com/developers/applications/
