@@ -1,5 +1,3 @@
-#token == MTAxNjEwMzc1ODc3MTUzOTk5OQ.G6Jkds.NUFdTdzKyQGb-k-7F-Qf-87G6cDbU4AHgjsjH4
-
 #version 2.0 of KDEF, now using the pycord API wrapper
 
 import func
@@ -52,4 +50,4 @@ async def delete(ctx, word):
     else:
         await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word>`')
 
-client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GCSIn6.HCVZL_7MvqK42A57RyMnQ5ockob5UUY2jnDSAo')
+client.run('<token>')
