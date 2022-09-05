@@ -10,5 +10,5 @@ Special thanks to the creator of Pycord and of Discord.py for making this projec
 # Dependencies
   - Pycord
   - SQLite3
-  - Python (Obviously)
+  - Python 3.0.0 or above
   - Discord bot **with message content intents**, can be created at https://discord.com/developers/applications/
