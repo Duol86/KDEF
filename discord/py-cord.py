@@ -43,4 +43,4 @@ async def define(ctx, word):
     elif deff[1] == 'english':
         await ctx.respond(f'kygish definition: {deff[0]}')
 
-client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.G6Jkds.NUFdTdzKyQGb-k-7F-Qf-87G6cDbU4AHgjsjH4')
+client.run('<token>')
