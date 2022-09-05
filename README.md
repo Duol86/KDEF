@@ -5,8 +5,8 @@ Originally, KDEF was created using Discord.py version 1.0, but the changes made 
 
 Special thanks to the creator of Pycord and of Discord.py for making this project possible in an easy way.
 
-**Before running**
-**Make sure to run either setup.py or setup.sql to set up the database for use with KDEF**
+**Before running, **
+**make sure to run either setup.py or setup.sql to set up the database for use with KDEF**
 
 # Dependencies
   - Pycord
