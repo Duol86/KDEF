@@ -1,0 +1,268 @@
+{
+    1:'''How to use the GRAMMAR command
+This command is meant to be a grammar guide within the dictionary bot so the grammar can be explained with less effort.
+Use `/grammar <number>` to locate a specific page of the guide.
+    
+    Please remember that Kygish is a **currently developing language** and the grammar may be subject to change at any time
+
+INDEX:
+    1 - Orthography
+    2 - Simple pronouns
+    3 - Using the copula
+    4 - Plurals
+    5 - Using 'le'
+    6 - Negating verbs
+    7 - Basic verb tense conjugation
+    8 - Conjugating "na"
+    9 - Particles
+    10 - Using 'soep'
+    11 - Using 'kosek aka' (advanced)''',
+
+    2:'''**Orthography**:
+    
+a - like 'ar' in the word 'h**ar**d' - /a/
+e - like 'e' in the word 'sp**e**ll' - /e/
+i - like the 'ee' in the word 's**ee**' - /i/
+o - like the 'ar' in the word 'w**ar**d' - /o/
+u - like the 'eu' in the french word 'bl**eu**' (blue) - /ɯ/
+y - like the 'i' in the word 'th**i**s' - /ɪ/
+w - like the 'oo' in the word 'z**oo**' /u/
+
+k - 'c' in '**c**at' - /kʰ/
+n - 'n' in '**n**o'  - /n/
+p - 'p' in '**p**ass' - /pʰ/
+t - 't' in '**t**oast' - /tʰ/
+s - 's' in '**s**ew' - /s/
+r - 'r' in '**r**ow' *or* the 'r' sound in the Japanese word 'ka**r**a' - /ɹ/ or /ɾ/
+v - 'v' in '**v**itamin' - /v/
+j - 'y' in '**y**ou' - /j/
+lh - 'll' in the welsh word '**ll**anfairpw**ll**gwyngy**ll**gogerychwyrndroby**llll**tysiliogogogoch' (or the welsh word '**ll**an') - /ɬ/
+l - 'l' in '**l**ove' - /l/
+' - the sound in between the 'uh' and 'oh' in the phrase 'uh**-**oh'. Also the sound used instead of the 't' sound when British people drop their t's - /ʔ/
+z - 'z' in '**z**oo' - /z/
+g - 'g' in '**g**o' - /g/
+h - 'h' in '**h**ave'; when at the end of a word or before a consonant, pronounced like the sound made when one is clearing their throat - /h/ at beginning, /χ/ at end
+ph - 'th' in '**th**ing' - /θ/
+bh - 'th' in '**th**is' - /ð/
+
+NOTE:
+- Combinations like 'er', 'ur', 'or' **do not** have the same sounds as their English counterparts. These sounds instead would be read as (using 'er' as an example) 'e' the 'r' as noted in the Kygish phonology
+- 'w' is **never** pronounced like it is in English, it is always a vowel
+- **'f', 'sh' and 'ch' do not exist in Kygish**, use 'ph', 's' and 't' instead when converting already existing English words into Kygish''',
+##############################
+    3:'''**Simple pronouns**
+    
+"I" and "me" correlate to the same word in Kygish: "ku"
+"You" is "te"
+"He" is "nego"
+"She" is "nago"
+"They" (never the plural version) is "nogos"
+"It" is "so"
+    
+*Next page: Using the copula*''',
+#############################
+    4:'''**Using the copula** (the verb for 'to be' - 'na'):
+    
+Note: the word 'na' is a *bjovoks gojan* (irregular verb), so its conjugations do not follow the same pattern as other Kygish verbs
+Describing things is almost exactly the same as English, other than the lack of a difference between "is" and "are" (both become "na") and the usual dropping of articles. In every sentence that uses the copula; the subject comes first, then the verb ("na"), then the object (SVO).
+    
+    EXAMPLE:
+        Forg = Dog
+        Dusas = Black
+    
+    "The dog is black." = "Forg na dusas."
+
+As you can see, in the sentence above, the article ('the') is dropped and the order of the words follows the order of subject - verb - object
+    
+The copula, when used with the pronouns 'ku', 'te' or 'so' ('I', 'You' and 'It') is fused with the pronoun and becomes [pronoun] + -n.
+Examples:
+    "I am fifteen years old" = "**Kun** jet-gjo seiku"
+    "You are good" = "**Ten** jota"
+    "It is cute" = "**Son** kasaku"
+    
+*Next page: Plurals*''',
+###############################
+    5:'''**Plurals**:
+    
+Plurals are one of the most simple areas of the Kygish language, all that has to be done is adding "-la" to the base, singular word.
+
+Examples using "-la":
+    We: "Ku-la" (since it is referring to multiple people in the first person, it is considered a plural of "I")
+    You (plural version - like the French 'vous'): "Te-la"
+    People: Nogo-la
+    
+*Next page: Using 'le'*''',
+########################
+    6:'''**Using 'le'**:
+
+The word 'le' is one of the more complicated aspects of the Kygish language. It is used for multiple purposes and can be confusing sometimes if it is forgotten.
+
+'Le' is used to show possession, meaning there is no existence of 'My' or 'Your' in this language.
+
+Saying 'My dog' in Kygish is 'Ku-le forg'
+
+Notice above that there is a hyphen located between 'ku' and 'le', this is to specify that 'le' is being used for possession in this circumstance and the hyphen is not pronounced seperately.
+The word 'le' is not exclusive to pronouns in its use as a possession particle, however.
+
+Saying "Hugo's dog" in Kygish is 'Hjwgo-le forg' (Hjwgo being the Kygish transliteration of the name 'Hugo')
+
+In the case of using 'le' attached to a word that is a plural, the suffix '-la' always goes before '-le' and these two suffixes are seperated by hyphens.
+
+"Our dog" in Kygish is "Ku-la-le forg"
+
+When 'le' is not used to show possession in a sentence it does not have a hyphen attached to it anywhere and has the meaning 'of' and is treated as any other word.
+
+"Ball of rock" in Kygish is "Lup le tra"
+
+*Next page: Negating verbs*''',
+###############################
+    7:'''**Negating verbs**:
+
+Verb negation in Kygish is very simple. The suffix '-vos' can be added to the verb and it is negated.
+
+"I don't run" in Kygish is "Ku ike**-vos**"
+
+There are no changes to 'na' when negating, either, so the most irregular verb also stays the same.
+
+"I am not a woman" in Kygish is "Kun**-vos** trakt"
+"He is not my friend" in Kygish is "Nego na**-vos** ku-le keigo"
+
+*Next page: Basic verb tense conjugation*
+''',
+#####################
+    8:'''**Verb conjugation**
+
+Every Kygish verb ends with '-e'; this is used heavily when conjugating a verb in this language.
+
+The verb conjugations are (using the example word 'ike' - to go):
+
+Present: Ike (keep the same)
+Past: Iken
+Future: Ika
+Volitional: Iko
+Imperative: Ikan
+Conditional: Ikasw
+Stating that one wants to do something: Ikyti
+
+The tenses explained in detail with examples:
+
+**Present**
+This tense covers what is happening at the current moment.
+Example:
+"I go": "Ku ik**e**"
+
+**Past**
+This tense convers what has happened before (in the *past*).
+Example:
+"I ate": "Ku bat**en**"
+
+**Future**
+This tense covers what is yet to happen.
+Example:
+"I will speak": "Ku lok**a**"
+
+**Volitional**
+This tense is suggesting the idea of doing the action in question or saying that one *should* do an action.
+Example:
+"Let's eat": "Ku-la bat**o**"
+
+**Imperative**
+This tense is the tense of a command. Used when telling someone to do something.
+Example:
+"Leave!": "Isku**an**!"
+
+**Conditional**
+This tense is the tense stating what *could* happen, therefore, on a condition.
+Example:
+"I would eat, but I am not hungry": "Ku bat**asw**, deruzo ku na-vos wsbat"
+
+The state of wanting to do something is self explanatory, so here is an example:
+"I want to go now": "Ku ikyti on'e"
+
+**The verb 'na' is irregular. It does not follow the same conjugation pattern as other verbs. View on the next page**
+
+*Next page: Conjugating "na"*''',
+########################
+    9:'''**Conjugating "na"**
+
+The conjugation of the copula does not follow the same pattern as the other verbs, but is still quite similar.
+It is listed below.
+
+"Is/are": "Na"
+"Was": "Nan"
+*(from this point onwards, the conjugation is treated as if the root verb was 'nake')*
+"Will be": "Naka"
+"Should be": "Nako"
+"Be (commanding)": "Nakan"
+"Would be": "Nakasw"
+"Want to be": "Nakyti"
+
+*Next page: Particles*
+''',
+#################
+    10:'''**Particles**
+The are various particles in the Kygish language and they are all important for making the meaning of a sentence clearer.
+
+    *The question particle:*
+This particle is added to the end of a sentence to form it into a question. The particle is "Ke". An example:
+"Will you go?" = "Te ika ke?"
+    
+    *The casual particles:*
+These particles ("e" and "ga") are added to the end of a sentence to make it more friendly and casual. An example:
+"I'm tired!" = "Kun domai e!"
+"That is weird" = "Jan na yteri ga"
+    
+    *Aggression particle:*
+This particle is "ar". It is used most commonly in the Kygish military but can be used to show aggression from a angry speaker. An example:
+"Why did you do that?!" = "Hon na te lojen jan ke ar?!"
+    
+    *Reflexive particle:*
+This paricle is "lo". It changes the meaning from the subject doing an action, to having the action *done to* them. An example:
+"We were taught" = "Ku-la lo osite"
+
+    *Concept particle:*
+This particle is "kosek". It is added after a verb or action to change it into a concept of this action. An example:
+"Running is good for you" = "Ikokae kosek na jota, te soep"
+
+*Next page: Using 'soep'*''',
+####################
+    11:'''**Using soep**
+
+The Kygish word 'soep' means 'for' and is placed after the phrase or word it would usually be placed before in English.
+
+"Te soep" = "For you"
+"For eating this" = "Bate jon soep"
+
+When 'soep' is at the end of a sentence, the will sometimes pause before saying the phrase and a comma is always place before in writing. An example:
+
+"So, I am here for you" = "Nai, kun jalve, te soep"
+
+'Soep' can also be used to express purpose or reasoning for an action. An example:
+
+"I live to eat" = "Ku etrese, bate soep"
+"I am here to teach!" = "Kun jalve, osite soep e!"
+
+*Next page: Using 'kosek aka' (advanced)*''',
+####################
+    12:'''**Using 'kosek aka' (advanced)**
+
+This guide is now teaching about advanced grammar point in kygish and may not be very familiar to someone who expects the grammar to be too similar to that of English
+
+The 'kosek aka' structure is one that is used to express a starting point or initial action followed by something that happens meanwhile this action is being performed. 'Kosek aka' literally means '[action] with', this could give you insight as to how it works in kygish.
+
+To start with an example sentence, let's deconstruct this one:
+
+"Kome atw ki-gakija kosek aka, nonogo-la osite henlota"
+
+To start with, there is the action 'kome atw ki-gakija' (start in first grade) followed by 'kosek aka'. The 'kosek' in this structure changes the action of starting in first grade into a concept (starting in first grade).
+Next, the 'aka' here makes it so the following action is something that is happening as the starting in first grade also happens. So, in full, combined with the other part of the sentence - 'nonogo-la osite henlota' (children learn sign language), the sentence translates to "Starting in first grade, children learn sign language".
+In other situations, it is much more common for 'kosek aka' to have the same meaning as 'while' or 'whilst'.
+
+Some more examples:
+
+'Ike tomi Djon kosek aka, nego delen' = 'While running from John, he fell'
+    
+'Etre ganako kosek aka, nago lo osite-vos mon' = 'While in school, she wasn't taught a thing'
+
+*End of guide* (for now)'''
+}
