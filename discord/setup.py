@@ -2,10 +2,15 @@ import sqlite3
 from os import system
 
 try:
-    import py-cord
+    system('python -m pip uninstall discord')
+except:
+    pass
+    
+try:
+    import discord
 except:
     print('installing dependency py-cord\n\n\n')
-    system('python -m pip install discord')
+    system('python -m pip install py-cord')
     print('\n\n\ninstalled dependency discord')
 
 try:
