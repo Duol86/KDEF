@@ -1,10 +1,5 @@
 import sqlite3
 from os import system
-
-try:
-    system('python -m pip uninstall discord')
-except:
-    pass
     
 try:
     import discord
