@@ -112,4 +112,4 @@ async def grammar(ctx, page):
 #    func.returnrand('kygish')
 
 #note to self: remember to hide token when uploading to github
-client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GasO_f.Wa-yUrN-_-UWYx_Zp2mzGKF5gPkhshsg0u1Ilg')
+client.run('<token>')
