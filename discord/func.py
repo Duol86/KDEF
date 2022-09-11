@@ -41,3 +41,13 @@ def indb(k):
 def delete(k):
     lang = keydef(k)[1]
     c.execute(f'DELETE FROM kdef WHERE {lang} = "{k}"')
+
+#chooses a random word from the database
+#def returnrand(k):
+#    rand = c.execute(f'''SELECT kygish FROM kdef
+#    ORDER BY random()
+#    LIMIT 1;''')
+#    rand2 = c.execute('''SELECT english FROM kdef
+#    ORDER BY random()
+#    LIMIT 1;''')
+#    print(rand)
