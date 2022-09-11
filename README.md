@@ -11,10 +11,10 @@ Included, is a `kygish.db` file with a large chunk of the current words in the o
 
 # Dependencies
   - Pycord v2.0.1
-  - HJSON python module
-  - Simple-chalk python module
+  - HJSON
+  - Simple-chalk
   
-  (the above three can be installed via `setup.py`)
+  (the above three are python modules and can be installed via `setup.py`)
   
   - Python 3.3.0 or above
   - Discord bot **with message content intents**, can be created at https://discord.com/developers/applications/
