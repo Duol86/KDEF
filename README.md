@@ -9,5 +9,9 @@ Special thanks to the creator of Pycord and of Discord.py for making this projec
 
 # Dependencies
   - Pycord v2.0.1
+  - HJSON python module
+  
+  (the above two can be installed via `setup.py`)
+  
   - Python 3.3.0 or above
   - Discord bot **with message content intents**, can be created at https://discord.com/developers/applications/
