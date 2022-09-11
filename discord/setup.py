@@ -2,9 +2,9 @@ import sqlite3
 from os import system
 
 try:
-    import discord
+    import py-cord
 except:
-    print('installing dependency discord\n\n\n')
+    print('installing dependency py-cord\n\n\n')
     system('python -m pip install discord')
     print('\n\n\ninstalled dependency discord')
 
