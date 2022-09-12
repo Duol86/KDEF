@@ -1,10 +1,12 @@
 #version 2.0 of KDEF, now using the pycord API wrapper and imroved DB
 
 #importing func.py, which contains database functions
+from operator import index
 import func
 #<import discord> is importing package py-cord, which uses the same namespace as discord.py
-import discord, sqlite3, random, hjson #json module can be imported instead, using file 'grammar.json'
+import discord, sqlite3, atexit, hjson #json module can be imported instead, using file 'grammar.json'
 from discord.ext import commands
+from os import system
 from sys import argv
 from simple_chalk import green, red #for console display in verbose mode
 
@@ -15,25 +17,38 @@ except IndexError:
     v = False
 
 c = sqlite3.connect("kygish.db")
-grammar = open('grammar.hjson')
-g = hjson.load(grammar)
+with open('grammar.hjson') as grammar:
+    g = hjson.load(grammar)
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = commands.Bot(
     command_prefix = [
-        'ktest',
-        'Ktest',
-        'kt.'
-        'Kt.'
+        '__add__ ' #used only for adding a new guild
     ],
+
 #REQUIRES MESSAGE CONTENT INTENTS
-intents=intents)
+    intents=intents)
 
 #Current guilds that the bot can use slash commands in
 #Change to global later (?)
-guilds = [939710720227041290]
+
+#assigning list 'guilds' to given command line arguments + default guilds
+guilds = argv
+try:
+    if guilds[1] == '-v':
+        guilds.pop(1)
+except IndexError:
+    pass
+guilds.pop(0)
+
+guilds.append(939710720227041290)
+guilds.append(690194500039082053) #default guilds
+for a in guilds:
+    a = int(a)
+
+print('Current guilds: {}'.format(guilds))
 
 @client.event
 async def on_ready():
@@ -104,12 +119,16 @@ async def grammar(ctx, page):
         await ctx.respond(f'Error: Page `{page}` is not valid')
         if v == True:
             print(red(f'[{ctx.author.name}][grammar][{page}][return:False]'))
-    
 
 #A memory test, responds with a word and has the user responding with the translation
 #@client.slash_command(guild_ids=guilds, description='A memory test')
 #async def memory(ctx, lang):
 #    func.returnrand('kygish')
 
+def exitHandling():
+    system('cp -r kygish.db ~')
+    print('\n\n    Copied kygish.db to home directory   \n\n')
+atexit.register(exitHandling)
+
 #note to self: remember to hide token when uploading to github
-client.run('<token>')
+client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.Guxher.zvTBNT9P2er_qpgBk2drebu5AJv9E_dcZlElSk')
