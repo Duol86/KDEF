@@ -1,6 +1,8 @@
 import sqlite3
 from os import system
 
+system('python -m ensurepip')
+
 try:
     import discord
 except:
