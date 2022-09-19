@@ -135,5 +135,5 @@ def exitHandling():
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
-client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GlH5WK._cgCjOXVUh-W9Xyk07QOhnQF4HSXV1Br2j9Bms')
+client.run('token')
 
