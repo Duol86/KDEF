@@ -61,10 +61,19 @@ async def add(ctx, word, definition):
     word = word.capitalize()
     definition = definition.capitalize()
 
-    func.add(word, definition)
-    await ctx.respond(f'Added word `{word}` with definition `{definition}`')
-    if v == True:
-        print(green(f'[{ctx.author.name}][add][{word}][{definition}]'))
+    if func.indb != True:
+        func.add(word, definition)
+        await ctx.respond(f'Added word `{word}` with definition `{definition}`')
+        if v == True:
+            print(green(f'[{ctx.author.name}][add][{word}][{definition}]'))
+    else:
+        await ctx.respond(f'Word `{word}` already exists in KDEF')
+        if v == True:
+            print(red(f'[{ctx.author.name}][add][{word}][{definition}][return:__False__]'))
+
+@client.slash_command(guild_ids=guilds, description='Shows the total amount of words in KDEF')
+async def sum(ctx):
+    await ctx.respond(f'There are {func.sum()} words stored in KDEF currently')
 
 #slash command to check the database for the defintion and respond with the opposite language's definition for the word
 @client.slash_command(guild_ids=guilds, description='Searches for matching word')
@@ -120,15 +129,11 @@ async def grammar(ctx, page):
         if v == True:
             print(red(f'[{ctx.author.name}][grammar][{page}][return:False]'))
 
-#A memory test, responds with a word and has the user responding with the translation
-#@client.slash_command(guild_ids=guilds, description='A memory test')
-#async def memory(ctx, lang):
-#    func.returnrand('kygish')
-
 def exitHandling():
     system('cp -r kygish.db ~')
     print('\n\n    Copied kygish.db to home directory   \n\n')
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
-client.run('<token>')
+client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GlH5WK._cgCjOXVUh-W9Xyk07QOhnQF4HSXV1Br2j9Bms')
+
