@@ -165,14 +165,19 @@ async def addexttable(ctx, table):
     table = table.lower()
     func.addexttable(table)
     await ctx.respond(f'Added table `{table}` to db')
+    if v == True:
+        print(green(f'[{ctx.author.name}][addexttable][{table}]'))
 
 @client.slash_command(description='Adds a word to an external table')
 async def addext(ctx, language, word, definition):
     language = language.lower()
     word = word.capitalize()
     definition = definition.capitalize()
-    func.addext(language, word, definition)
-    await ctx.respond(f'Added word `{word}` with definition `{definition}` to language `{language}`')
+    try:
+        func.addext(language, word, definition)
+        await ctx.respond(f'Added word `{word}` with definition `{definition}` to language `{language}`')
+    except:
+        await ctx.respond(f'Language `{language}` not found, please add it using `/addexttable <table>`')
 
 #deletes word from database, responds to message with confirmation
 @client.slash_command(description='Deletes a word and definition')
@@ -211,4 +216,4 @@ def exitHandling():
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
-client.run('<token>')
+client.run('token')
