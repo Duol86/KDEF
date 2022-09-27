@@ -55,7 +55,7 @@ async def on_ready():
     print('running')
 
 #slash command for adding a word to the database, responds with confirmation
-@client.slash_command(guild_ids=guilds, description='Adds a new word and definition')
+@client.slash_command(description='Adds a new word and definition')
 async def add(ctx, word, definition):
     #formatting
     word = word.capitalize()
@@ -71,12 +71,12 @@ async def add(ctx, word, definition):
         if v == True:
             print(red(f'[{ctx.author.name}][add][{word}][{definition}][return:__False__]'))
 
-@client.slash_command(guild_ids=guilds, description='Shows the total amount of words in KDEF')
+@client.slash_command(description='Shows the total amount of words in KDEF')
 async def sum(ctx):
     await ctx.respond(f'There are {func.sum()} words stored in KDEF currently')
 
 #slash command to check the database for the defintion and respond with the opposite language's definition for the word
-@client.slash_command(guild_ids=guilds, description='Searches for matching word')
+@client.slash_command(description='Searches for matching word')
 async def define(ctx, word):
     #formatting
     word = word.capitalize()
@@ -98,7 +98,7 @@ async def define(ctx, word):
         except TypeError:
             print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
 
-@client.slash_command(guild_ids=guilds, description='Defines a word from a non-Kygish language')
+@client.slash_command(description='Defines a word from a non-Kygish language')
 async def extdefine(ctx, word, language):
     word = word.capitalize()
     language = language.lower()
@@ -119,11 +119,11 @@ async def extdefine(ctx, word, language):
         await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word> <definition>`')
     if v == True:
         try:
-            print(green(f'[{ctx.author.name}][define][{word}][return:{deff[0]}]'))
+            print(green(f'[{ctx.author.name}][define][{word}][return:\n{deff[0]}]'))
         except TypeError:
             print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
 
-@client.slash_command(guild_ids=guilds, description='Deletes a word from an external language')
+@client.slash_command(description='Deletes a word from an external language')
 @commands.has_permissions(manage_messages=True)
 async def extdelete(ctx, word, language):
     word = word.capitalize()
@@ -136,6 +136,8 @@ async def extdelete(ctx, word, language):
             print(red(f'[{ctx.author.name}][extdelete][{word}][{language}][return:__False__]'))
     elif eidb == 1:
         await func.deleteext(language, word)
+        if v == True:
+            print(green(f'[{ctx.author.name}][extdelete][{word}][{language}]'))
     else:
         string = ''
         def check(m):
@@ -154,17 +156,19 @@ async def extdelete(ctx, word, language):
             msg = int(msg)-1
             func.extdeletemulti(language, dd[1][msg][0], dd[1][msg][1])
             await ctx.send(f'Word `{word}` and its definition deleted')
+            if v == True:
+                print(green(f'[{ctx.author.name}][extdelete][{word}][{language}][return:__True__]'))
         except:
             await ctx.send('An error occured, please try again, if this error persists, please contact the bot owner')
         
 
-@client.slash_command(guild_ids=guilds, description='Adds a table to database')
+@client.slash_command(description='Adds a table to database')
 async def addexttable(ctx, table):
     table = table.lower()
-    func.addext(table)
+    func.addexttable(table)
     await ctx.respond(f'Added table `{table}` to db')
 
-@client.slash_command(guild_ids=guilds, description='Adds a word to an external table')
+@client.slash_command(description='Adds a word to an external table')
 async def addext(ctx, language, word, definition):
     language = language.lower()
     word = word.capitalize()
@@ -173,7 +177,7 @@ async def addext(ctx, language, word, definition):
     await ctx.respond(f'Added word `{word}` with definition `{definition}` to language `{language}`')
 
 #deletes word from database, responds to message with confirmation
-@client.slash_command(guild_ids=guilds, description='Deletes a word and definition')
+@client.slash_command(description='Deletes a word and definition')
 async def delete(ctx, word):
     #formatting
     word = word.capitalize()
@@ -188,7 +192,7 @@ async def delete(ctx, word):
         if v == True:
             print(red(f'[{ctx.author.name}][delete][return:False]'))
 
-@client.slash_command(guild_ids=guilds, description='Grammar guide for Kygish')
+@client.slash_command(description='Grammar guide for Kygish')
 async def grammar(ctx, page):
     try:
         await ctx.respond(embed=discord.Embed(
@@ -210,4 +214,3 @@ atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
 client.run('<token>')
-
