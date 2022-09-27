@@ -105,9 +105,7 @@ async def extdefine(ctx, word, language):
     try:
         deff = func.extdefine(word, language)
     except:
-        await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/addext <language> <word> <definition>`')
-        if v == True:
-            print(red(f'[{ctx.author.name}][extdefine][{word}][{language}][return:__False__]'))
+        deff = False
     try:
         await ctx.respond(embed=discord.Embed(
             title = f'KDEF: {word}',
@@ -213,4 +211,4 @@ def exitHandling():
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
-client.run('<token>')
+client.run('MTAxNjEwMzc1ODc3MTUzOTk5OQ.GmI72n.3jMovSYbm6PTj8g4SXrN0SvNFPCW8OgMByZ_4U')
