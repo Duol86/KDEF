@@ -204,8 +204,8 @@ async def grammar(ctx, page):
             print(red(f'[{ctx.author.name}][grammar][{page}][return:False]'))
 
 def exitHandling():
-    system('cp -r kygish.db ~')
-    print('\n\n    Copied kygish.db to home directory   \n\n')
+    system('cp -r kygish.db ~ && cp -r ext.db ~')
+    print('\n\n    Copied kygish.db and ext.db to home directory   \n\n')
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
