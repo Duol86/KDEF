@@ -1,6 +1,6 @@
 import sqlite3
 
-c = sqlite3.connect('kygish.db')
+c, ex = sqlite3.connect('kygish.db'), sqlite3.connect('ext.db')
 
 #Adds a new word to the database
 def add(e, k):
@@ -28,7 +28,63 @@ def keydef(k):
         #returns [definition, word's language, definition's language]
         return [o, olang, olang2]
 
+def extdefine(k, lang):
+    o = ''
+    olen = 0
+    cu = ex.execute(f'SELECT * FROM {lang} WHERE {lang} = "{k}"')
+    co = ex.execute(f'SELECT * FROM {lang} WHERE english = "{k}"')
+    for a in cu:
+        o += f'(English) {a[0]}: {a[1]}\n'
+        olen += 1
+    for a in co:
+        o += f'({lang.capitalize()}) {a[0]}: {a[1]}\n'
+        olen += 1
+    if o == '':
+        return False
+    else:
+        return [o, olen]
+
+def addexttable(table):
+    ex.execute(f'''CREATE TABLE {table}(
+        english text,
+        {table} text
+    )''')
+    ex.commit()
+
+def addext(table, e, k):
+    ex.execute(f'''INSERT INTO {table}(english, {table})
+    VALUES("{e}", "{k}")
+    ''')
+    ex.commit()
+
+
 #Checks database for whether or not the word exists, returns True or False
+def extindb(k, lang):
+    o = False
+    words = []
+    cu = ex.execute(f'SELECT * FROM {lang}')
+    for a in cu:
+        if a[0] == k:
+            o += 1
+            words.append([a[1], k])
+        elif a[1] == k:
+            o += 1
+            words.append([a[0], k])
+    return [o, words]
+
+def deleteext(table, k):
+    ex.execute(f'DELETE FROM {table} WHERE english = "{k}" OR {table} = "{k}"')
+
+def extsum(table):
+    sums = ex.execute(f'SELECT * FROM {table}')
+    x = 0
+    for a in sums:
+        x += 1
+    return x
+
+def extdeletemulti(table, k, e):
+    ex.execute(f'DELETE FROM {table} WHERE (english = "{e}" AND {table} = "{k}") OR (english = "{k}" AND {table} = "{e}")')
+
 def indb(k):
     o = False
     cu = c.execute('SELECT * FROM kdef')

@@ -4,7 +4,7 @@
 from operator import index
 import func
 #<import discord> is importing package py-cord, which uses the same namespace as discord.py
-import discord, sqlite3, atexit, hjson #json module can be imported instead, using file 'grammar.json'
+import discord, sqlite3, atexit, asyncio, hjson #json module can be imported instead, using file 'grammar.json'
 from discord.ext import commands
 from os import system
 from sys import argv
@@ -98,6 +98,80 @@ async def define(ctx, word):
         except TypeError:
             print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
 
+@client.slash_command(guild_ids=guilds, description='Defines a word from a non-Kygish language')
+async def extdefine(ctx, word, language):
+    word = word.capitalize()
+    language = language.lower()
+    try:
+        deff = func.extdefine(word, language)
+    except:
+        await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/addext <language> <word> <definition>`')
+        if v == True:
+            print(red(f'[{ctx.author.name}][extdefine][{word}][{language}][return:__False__]'))
+    try:
+        await ctx.respond(embed=discord.Embed(
+            title = f'KDEF: {word}',
+            description = deff[0],
+            #description = 'english/kygish definition: word'
+            color = discord.Color.purple()
+        ))
+    except:
+        await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word> <definition>`')
+    if v == True:
+        try:
+            print(green(f'[{ctx.author.name}][define][{word}][return:{deff[0]}]'))
+        except TypeError:
+            print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
+
+@client.slash_command(guild_ids=guilds, description='Deletes a word from an external language')
+@commands.has_permissions(manage_messages=True)
+async def extdelete(ctx, word, language):
+    word = word.capitalize()
+    language = language.lower()
+    dd = func.extindb(word, language)
+    eidb = dd[0]
+    if eidb == 0:
+        await ctx.respond(f'Word `{word}` not found in KDEF')
+        if v == True:
+            print(red(f'[{ctx.author.name}][extdelete][{word}][{language}][return:__False__]'))
+    elif eidb == 1:
+        await func.deleteext(language, word)
+    else:
+        string = ''
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+        for a in range(0, len(dd[1])):
+            string += f'[{a+1}] {dd[1][a][0]} = {dd[1][a][1]}\n'
+        await ctx.respond(f"There are multiple definitions for word `{word}` in KDEF, please specify which one from this list you would like to delete:\n```{string}```")
+        try:
+            msg = await client.wait_for('message', check=check, timeout=10)
+            msg = msg.content
+        except asyncio.TimeoutError:
+            await ctx.respond('Timed out')
+            if v == True:
+                print(red(f'[{ctx.author.name}][extdelete][{word}][{language}][return:__False__]'))
+        try:
+            msg = int(msg)-1
+            func.extdeletemulti(language, dd[1][msg][0], dd[1][msg][1])
+            await ctx.send(f'Word `{word}` and its definition deleted')
+        except:
+            await ctx.send('An error occured, please try again, if this error persists, please contact the bot owner')
+        
+
+@client.slash_command(guild_ids=guilds, description='Adds a table to database')
+async def addexttable(ctx, table):
+    table = table.lower()
+    func.addext(table)
+    await ctx.respond(f'Added table `{table}` to db')
+
+@client.slash_command(guild_ids=guilds, description='Adds a word to an external table')
+async def addext(ctx, language, word, definition):
+    language = language.lower()
+    word = word.capitalize()
+    definition = definition.capitalize()
+    func.addext(language, word, definition)
+    await ctx.respond(f'Added word `{word}` with definition `{definition}` to language `{language}`')
+
 #deletes word from database, responds to message with confirmation
 @client.slash_command(guild_ids=guilds, description='Deletes a word and definition')
 async def delete(ctx, word):
@@ -135,5 +209,5 @@ def exitHandling():
 atexit.register(exitHandling)
 
 #note to self: remember to hide token when uploading to github
-client.run('token')
+client.run('<token>')
 

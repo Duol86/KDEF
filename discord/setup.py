@@ -1,14 +1,12 @@
 import sqlite3
 from os import system
 
-system('python -m ensurepip')
-
 try:
     import discord
 except:
-    print('installing dependency py-cord\n\n\n')
-    system('python -m pip install py-cord')
-    print('\n\n\ninstalled dependency py-cord')
+    print('installing dependency discord\n\n\n')
+    system('python -m pip install discord')
+    print('\n\n\ninstalled dependency discord')
 
 try:
     import hjson
@@ -33,4 +31,15 @@ except:
     con.execute('''CREATE TABLE kdef
     ("english" varchar,
     "kygish" varchar)''')
+    con.commit()
+
+try:
+    con = sqlite3.connect('ext.db')
+    con.execute('SELECT * FROM kazakan')
+except:
+    con = sqlite3.connect('ext.db')
+
+    con.execute('''CREATE TABLE kazakan
+    ("english" varchar,
+    "kazakan" varchar)''')
     con.commit()
