@@ -28,6 +28,13 @@ def keydef(k):
         #returns [definition, word's language, definition's language]
         return [o, olang, olang2]
 
+def extsum(lang):
+    sums = ex.execute(f'SELECT * FROM {lang}')
+    x = 0
+    for a in sums:
+        x += 1
+    return x
+
 def extdefine(k, lang):
     o = ''
     olen = 0

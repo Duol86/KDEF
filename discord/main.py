@@ -16,6 +16,7 @@ try:
 except IndexError:
     v = False
 
+ex = sqlite3.connect('ext.db')
 c = sqlite3.connect("kygish.db")
 with open('grammar.hjson') as grammar:
     g = hjson.load(grammar)
@@ -73,7 +74,18 @@ async def add(ctx, word, definition):
 
 @client.slash_command(description='Shows the total amount of words in KDEF')
 async def sum(ctx):
-    await ctx.respond(f'There are {func.sum()} words stored in KDEF currently')
+    #await ctx.respond(f'There are {func.sum()} words stored in KDEF currently')
+    string = f'KDEF sum:\n Kygish: {func.sum()}\n'
+    table_names = ex.execute('SELECT name FROM sqlite_schema WHERE type="table"')
+    for a in table_names:
+        string += f' {a[0].capitalize()}: {func.extsum(a[0])}\n'
+    await ctx.respond(f'```{string}```')
+    if v == True:
+        print(green(f'[{ctx.author.name}][sum]'))
+
+#@client.slash_command(description='Shows the total amount of words in an external language')
+#async def extsum(ctx, lang):
+#    await ctx.respond(f'There are {func.extsum(lang)} words stored in language{lang} currently')
 
 #slash command to check the database for the defintion and respond with the opposite language's definition for the word
 @client.slash_command(description='Searches for matching word')
@@ -98,7 +110,7 @@ async def define(ctx, word):
         except TypeError:
             print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
 
-@client.slash_command(description='Defines a word from a non-Kygish language')
+@client.slash_command(description='Defines a word from an external language')
 async def extdefine(ctx, word, language):
     word = word.capitalize()
     language = language.lower()
@@ -117,9 +129,9 @@ async def extdefine(ctx, word, language):
         await ctx.respond(f'Word `{word}` not found, try checking spelling or adding the word yourself using `/add <word> <definition>`')
     if v == True:
         try:
-            print(green(f'[{ctx.author.name}][define][{word}][return:\n{deff[0]}]'))
+            print(green(f'[{ctx.author.name}][extdefine][{language}][{word}][return:\n{deff[0]}]'))
         except TypeError:
-            print(red(f'[{ctx.author.name}][define][{word}][return:__False__]'))
+            print(red(f'[{ctx.author.name}][extdefine][{language}][{word}][return:__False__]'))
 
 @client.slash_command(description='Deletes a word from an external language')
 @commands.has_permissions(manage_messages=True)
@@ -160,7 +172,7 @@ async def extdelete(ctx, word, language):
             await ctx.send('An error occured, please try again, if this error persists, please contact the bot owner')
         
 
-@client.slash_command(description='Adds a table to database')
+@client.slash_command(description='Adds an external language table to database')
 async def addexttable(ctx, table):
     table = table.lower()
     func.addexttable(table)
@@ -176,9 +188,12 @@ async def addext(ctx, language, word, definition):
     try:
         func.addext(language, word, definition)
         await ctx.respond(f'Added word `{word}` with definition `{definition}` to language `{language}`')
+        if v == True:
+            print(green(f'[{ctx.author.name}][addext][{language}][{word}][{definition}]'))
     except:
         await ctx.respond(f'Language `{language}` not found, please add it using `/addexttable <table>`')
-
+        if v == True:
+            print(red(f'[{ctx.author.name}][addext][{language}][{word}][{definition}][return:__False__]'))
 #deletes word from database, responds to message with confirmation
 @client.slash_command(description='Deletes a word and definition')
 async def delete(ctx, word):
