@@ -4,9 +4,9 @@ from os import system
 try:
     import discord
 except:
-    print('installing dependency discord\n\n\n')
-    system('python -m pip install discord')
-    print('\n\n\ninstalled dependency discord')
+    print('installing dependency pycord\n\n\n')
+    system('python -m pip install py-cord')
+    print('\n\n\ninstalled dependency pycord')
 
 try:
     import hjson
